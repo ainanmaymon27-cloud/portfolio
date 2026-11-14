@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import cvPdf from './Aisha Muhammad Waseem CV.pdf';
+
 import {
   Menu,
   X,
@@ -495,16 +495,14 @@ export default function App() {
     setCopiedField(label);
     setTimeout(() => setCopiedField(''), 2200);
   };
-
-  const handleDownloadCV = () => {
-    const link = document.createElement('a');
-    link.href = cvPdf;
-    link.download = 'Aisha Muhammad Waseem CV.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
+const handleDownloadCV = () => {
+  const link = document.createElement('a');
+  link.href = '/Aisha Muhammad Waseem CV.docx'; // Public folder ka direct path
+  link.download = 'Aisha Muhammad Waseem CV.docx';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
   const renderIcon = (name, className = 'w-5 h-5') => {
     switch (name) {
       case 'Hotel':
