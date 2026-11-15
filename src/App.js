@@ -521,14 +521,14 @@ export default function App() {
     setTimeout(() => setCopiedField(''), 2200);
   };
 
-  const handleDownloadCV = () => {
-    const link = document.createElement('a');
-    link.href = '/Aisha Muhammad Waseem CV.docx';
-    link.download = 'Aisha Muhammad Waseem CV.docx';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+  // const handleDownloadCV = () => {
+  //   const link = document.createElement('a');
+  //   link.href = '/Aisha Muhammad Waseem CV.docx';
+  //   link.download = 'Aisha Muhammad Waseem CV.docx';
+  //   document.body.appendChild(link);
+  //   link.click();
+  //   document.body.removeChild(link);
+  // };
 
   const renderIcon = (name, className = 'w-5 h-5') => {
     switch (name) {
@@ -738,13 +738,13 @@ export default function App() {
                   <FolderGit2 className="w-4 h-4 shrink-0" />
                   Explore All 11 Projects
                 </button>
-                <button
+                {/* <button
                   onClick={handleDownloadCV}
                   className="w-full sm:w-auto px-5 sm:px-6 py-3.5 rounded-2xl bg-[#1A2321] hover:bg-[#116466]/40 text-[#D9B08C] border border-[#116466] font-bold text-xs sm:text-sm shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Download className="w-4 h-4 text-[#D9B08C] shrink-0" />
                   Download My PDF CV
-                </button>
+                </button> */}
               </div>
 
               {/* Social Links Bar */}
