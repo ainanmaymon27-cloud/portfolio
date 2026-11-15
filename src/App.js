@@ -34,17 +34,41 @@ import {
   Briefcase,
   HeartHandshake,
   ExternalLink,
-  MessageCircle,
   Loader2,
   Download
 } from 'lucide-react';
 
 // ============================================================================
-// EMAIL & WHATSAPP CONFIGURATION FOR AISHA MUHAMMAD WASEEM
+// CLEAN SVG SOCIAL ICONS (To avoid missing export errors in lucide-react)
+// ============================================================================
+const LinkedinIcon = ({ className = "w-4 h-4" }) => (
+  <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+  </svg>
+);
+
+const TiktokIcon = ({ className = "w-4 h-4" }) => (
+  <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+  </svg>
+);
+
+const InstagramIcon = ({ className = "w-4 h-4" }) => (
+  <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.949.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+  </svg>
+);
+
+// ============================================================================
+// EMAIL & SOCIAL MEDIA CONFIGURATION FOR AISHA MUHAMMAD WASEEM
 // ============================================================================
 const WEB3FORMS_ACCESS_KEY = 'b1ae8f14-dccb-47a6-bcf3-aa7779e7d76f';
-const WHATSAPP_URL =
-  'https://wa.me/923102600950?text=Assalam-o-Alaikum%20Aisha!%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect.';
+
+const SOCIAL_LINKS = {
+  linkedin: 'https://www.linkedin.com/in/aisha-waseem-dev',
+  tiktok: 'https://www.tiktok.com/@aishawaseemdev',
+  instagram: 'https://www.instagram.com/aishawaseemdev'
+};
 
 const PORTFOLIO_DATA = {
   name: 'Aisha Muhammad Waseem',
@@ -52,8 +76,9 @@ const PORTFOLIO_DATA = {
   location: 'Karachi, Pakistan',
   email: 'ainanmaymon27@gmail.com',
   phone: '0310-2600950',
-  whatsappUrl: WHATSAPP_URL,
-  linkedin: 'https://www.linkedin.com/in/aisha-waseem-dev',
+  linkedin: SOCIAL_LINKS.linkedin,
+  tiktok: SOCIAL_LINKS.tiktok,
+  instagram: SOCIAL_LINKS.instagram,
   heroKicker: 'Full-Stack Developer • Flutter App Creator • CS & Math Educator',
   summary:
     'I am a Karachi-based IT Undergraduate and Full-Stack Software Developer crafting complete MERN web applications, Flutter mobile apps, and PHP/MySQL platforms with custom admin dashboards. Alongside software engineering, I teach Computer Science & Mathematics at S.A.J Academy and coordinate remotely with international clients in Japan and global platforms.',
@@ -495,14 +520,16 @@ export default function App() {
     setCopiedField(label);
     setTimeout(() => setCopiedField(''), 2200);
   };
-const handleDownloadCV = () => {
-  const link = document.createElement('a');
-  link.href = '/Aisha Muhammad Waseem CV.docx'; // Public folder ka direct path
-  link.download = 'Aisha Muhammad Waseem CV.docx';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-};
+
+  const handleDownloadCV = () => {
+    const link = document.createElement('a');
+    link.href = '/Aisha Muhammad Waseem CV.docx';
+    link.download = 'Aisha Muhammad Waseem CV.docx';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const renderIcon = (name, className = 'w-5 h-5') => {
     switch (name) {
       case 'Hotel':
@@ -599,13 +626,13 @@ const handleDownloadCV = () => {
 
   return (
     <div className="min-h-screen bg-[#2C3531] text-[#D1E8E2] font-sans selection:bg-[#116466] selection:text-[#FFCB9A] relative overflow-x-hidden w-full box-border">
-      {/* Sirin Labs Cyber / Deep Teal Ambient Glows */}
+      {/* Ambient Glows */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <div className="absolute -top-32 -left-24 w-[20rem] sm:w-[36rem] h-[20rem] sm:h-[36rem] rounded-full bg-[#116466]/20 blur-[150px]" />
         <div className="absolute top-24 right-0 w-[20rem] sm:w-[32rem] h-[20rem] sm:h-[32rem] rounded-full bg-[#D9B08C]/10 blur-[140px]" />
       </div>
 
-      {/* STICKY HEADER WITH BUILT-IN AW TECH LOGO */}
+      {/* HEADER */}
       <header className="sticky top-0 z-40 bg-[#2C3531]/95 backdrop-blur-xl border-b border-[#116466] w-full box-border">
         <div className="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2">
           <button
@@ -702,7 +729,7 @@ const handleDownloadCV = () => {
                 {PORTFOLIO_DATA.summary}
               </p>
 
-              {/* Primary Action Buttons */}
+              {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3 pt-1">
                 <button
                   onClick={() => scrollToSection('projects')}
@@ -720,25 +747,42 @@ const handleDownloadCV = () => {
                 </button>
               </div>
 
+              {/* Social Links Bar */}
               <div className="pt-2 flex flex-wrap items-center gap-2">
                 <a
-                  href="tel:+923102600950"
-                  className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-[#1A2321] border border-[#116466] hover:border-[#D9B08C] text-xs font-semibold text-[#D1E8E2] transition-colors max-w-full truncate"
+                  href={SOCIAL_LINKS.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#1A2321] border border-[#116466] hover:border-[#D9B08C] text-xs font-semibold text-[#D1E8E2] transition-colors"
                 >
-                  <Phone className="w-3.5 h-3.5 text-[#D9B08C] shrink-0" />
-                  <span className="truncate">0310-2600950</span>
+                  <LinkedinIcon className="w-3.5 h-3.5 text-[#D9B08C] shrink-0" />
+                  <span>LinkedIn</span>
+                </a>
+                <a
+                  href={SOCIAL_LINKS.tiktok}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#1A2321] border border-[#116466] hover:border-[#D9B08C] text-xs font-semibold text-[#D1E8E2] transition-colors"
+                >
+                  <TiktokIcon className="w-3.5 h-3.5 text-[#D9B08C] shrink-0" />
+                  <span>TikTok</span>
+                </a>
+                <a
+                  href={SOCIAL_LINKS.instagram}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#1A2321] border border-[#116466] hover:border-[#D9B08C] text-xs font-semibold text-[#D1E8E2] transition-colors"
+                >
+                  <InstagramIcon className="w-3.5 h-3.5 text-[#D9B08C] shrink-0" />
+                  <span>Instagram</span>
                 </a>
                 <a
                   href={`mailto:${PORTFOLIO_DATA.email}`}
-                  className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-[#1A2321] border border-[#116466] hover:border-[#D9B08C] text-xs font-semibold text-[#D1E8E2] transition-colors truncate max-w-full"
+                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#1A2321] border border-[#116466] hover:border-[#D9B08C] text-xs font-semibold text-[#D1E8E2] transition-colors"
                 >
                   <Mail className="w-3.5 h-3.5 text-[#D9B08C] shrink-0" />
                   <span className="truncate">{PORTFOLIO_DATA.email}</span>
                 </a>
-                <span className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#1A2321] border border-[#116466] text-xs font-semibold text-[#FFCB9A] max-w-full truncate">
-                  <MapPin className="w-3.5 h-3.5 text-[#D9B08C] shrink-0" />
-                  <span className="truncate">Karachi, Pakistan</span>
-                </span>
               </div>
             </div>
 
@@ -1207,43 +1251,16 @@ const handleDownloadCV = () => {
                     Collaboration Studio
                   </span>
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-[#FFFFFF] mt-1 tracking-tight break-words">
-                    Let&apos;s Build Something{' '}
-                    <span className="font-serif italic text-[#FFCB9A]">Memorable</span>
+                    Let&apos;s Connect &amp;{' '}
+                    <span className="font-serif italic text-[#FFCB9A]">Collaborate</span>
                   </h2>
                   <p className="text-xs sm:text-sm text-[#D1E8E2]/80 leading-relaxed mt-2 break-words">
-                    Reach out for Full-Stack MERN or Flutter app development, custom PHP/MySQL dashboards, or Computer Science &amp; Mathematics teaching opportunities.
+                    Reach out via email or connect with me on LinkedIn, TikTok, and Instagram for full-stack projects, mobile apps, or teaching roles.
                   </p>
                 </div>
 
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between gap-2 p-3.5 rounded-2xl bg-[#222E2B] border border-[#116466]">
-                    <a href="tel:+923102600950" className="flex items-center gap-3 min-w-0">
-                      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#1A2321] text-[#FFCB9A] border border-[#116466] flex items-center justify-center shrink-0">
-                        <Phone className="w-4 h-4" />
-                      </div>
-                      <div className="min-w-0">
-                        <div className="text-[10px] sm:text-[11px] font-semibold text-[#D1E8E2]/70">Phone / WhatsApp</div>
-                        <div className="text-xs sm:text-sm font-extrabold text-[#FFFFFF] truncate">0310-2600950</div>
-                      </div>
-                    </a>
-                    <button
-                      onClick={() => handleCopy('03102600950', 'phone')}
-                      className="px-2.5 py-1.5 rounded-lg bg-[#1A2321] border border-[#116466] hover:border-[#D9B08C] text-xs font-bold text-[#FFCB9A] flex items-center gap-1 cursor-pointer shrink-0"
-                    >
-                      {copiedField === 'phone' ? (
-                        <>
-                          <Check className="w-3.5 h-3.5 text-[#FFCB9A]" />
-                          <span>Copied</span>
-                        </>
-                      ) : (
-                        <>
-                          <Copy className="w-3.5 h-3.5" />
-                          <span>Copy</span>
-                        </>
-                      )}
-                    </button>
-                  </div>
-
+                  {/* Email Card */}
                   <div className="flex items-center justify-between gap-2 p-3.5 rounded-2xl bg-[#222E2B] border border-[#116466]">
                     <a
                       href={`mailto:${PORTFOLIO_DATA.email}`}
@@ -1277,26 +1294,61 @@ const handleDownloadCV = () => {
                     </button>
                   </div>
 
+                  {/* LinkedIn Card */}
                   <a
-                    href={PORTFOLIO_DATA.whatsappUrl}
+                    href={SOCIAL_LINKS.linkedin}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center justify-between p-3.5 rounded-2xl bg-[#132E27] border border-[#10B981] hover:bg-[#10B981] group transition-colors"
+                    className="flex items-center justify-between p-3.5 rounded-2xl bg-[#222E2B] border border-[#116466] hover:border-[#D9B08C] transition-colors group"
                   >
                     <div className="flex items-center gap-3 min-w-0">
-                      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#10B981] group-hover:bg-[#1A2321] text-[#1A2321] group-hover:text-[#10B981] flex items-center justify-center shrink-0 transition-colors">
-                        <MessageCircle className="w-4 h-4" />
+                      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#1A2321] text-[#FFCB9A] border border-[#116466] flex items-center justify-center shrink-0">
+                        <LinkedinIcon className="w-4 h-4" />
                       </div>
                       <div className="min-w-0">
-                        <div className="text-[10px] sm:text-[11px] font-bold text-[#34D399] group-hover:text-[#FFFFFF]">
-                          Direct WhatsApp Chat
-                        </div>
-                        <div className="text-xs sm:text-sm font-extrabold text-[#FFFFFF] group-hover:text-[#1A2321] truncate">
-                          Chat on WhatsApp (+92 310-2600950)
-                        </div>
+                        <div className="text-[10px] sm:text-[11px] font-semibold text-[#D1E8E2]/70">Professional Network</div>
+                        <div className="text-xs sm:text-sm font-extrabold text-[#FFFFFF] truncate">LinkedIn Profile</div>
                       </div>
                     </div>
-                    <ArrowUpRight className="w-4 h-4 text-[#34D399] group-hover:text-[#1A2321] shrink-0" />
+                    <ArrowUpRight className="w-4 h-4 text-[#D9B08C] shrink-0" />
+                  </a>
+
+                  {/* TikTok Card */}
+                  <a
+                    href={SOCIAL_LINKS.tiktok}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center justify-between p-3.5 rounded-2xl bg-[#222E2B] border border-[#116466] hover:border-[#D9B08C] transition-colors group"
+                  >
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#1A2321] text-[#FFCB9A] border border-[#116466] flex items-center justify-center shrink-0">
+                        <TiktokIcon className="w-4 h-4" />
+                      </div>
+                      <div className="min-w-0">
+                        <div className="text-[10px] sm:text-[11px] font-semibold text-[#D1E8E2]/70">Social &amp; Projects</div>
+                        <div className="text-xs sm:text-sm font-extrabold text-[#FFFFFF] truncate">TikTok (@aishawaseemdev)</div>
+                      </div>
+                    </div>
+                    <ArrowUpRight className="w-4 h-4 text-[#D9B08C] shrink-0" />
+                  </a>
+
+                  {/* Instagram Card */}
+                  <a
+                    href={SOCIAL_LINKS.instagram}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center justify-between p-3.5 rounded-2xl bg-[#222E2B] border border-[#116466] hover:border-[#D9B08C] transition-colors group"
+                  >
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#1A2321] text-[#FFCB9A] border border-[#116466] flex items-center justify-center shrink-0">
+                        <InstagramIcon className="w-4 h-4" />
+                      </div>
+                      <div className="min-w-0">
+                        <div className="text-[10px] sm:text-[11px] font-semibold text-[#D1E8E2]/70">Creative &amp; Updates</div>
+                        <div className="text-xs sm:text-sm font-extrabold text-[#FFFFFF] truncate">Instagram Profile</div>
+                      </div>
+                    </div>
+                    <ArrowUpRight className="w-4 h-4 text-[#D9B08C] shrink-0" />
                   </a>
 
                   <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-[#222E2B] border border-[#116466]">
@@ -1338,13 +1390,13 @@ const handleDownloadCV = () => {
                     </p>
                     <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
                       <a
-                        href={PORTFOLIO_DATA.whatsappUrl}
+                        href={SOCIAL_LINKS.linkedin}
                         target="_blank"
                         rel="noreferrer"
                         className="px-4 sm:px-5 py-2.5 rounded-xl bg-[#1A2321] border border-[#116466] hover:bg-[#116466] text-[#FFCB9A] text-xs font-bold inline-flex items-center gap-1.5 transition-colors"
                       >
-                        <MessageCircle className="w-4 h-4 text-[#FFCB9A] shrink-0" />
-                        Message on WhatsApp
+                        <LinkedinIcon className="w-4 h-4 text-[#FFCB9A] shrink-0" />
+                        Connect on LinkedIn
                       </a>
                       <button
                         onClick={() => setFormSubmitted(false)}
@@ -1454,7 +1506,7 @@ const handleDownloadCV = () => {
       </main>
 
       {/* FOOTER */}
-      <footer className="border-t border-[#116466] bg-[#2C3531]/90 py-8 px-3 sm:px-6 lg:px-8 pb-24 sm:pb-10 w-full box-border">
+      <footer className="border-t border-[#116466] bg-[#2C3531]/90 py-8 px-3 sm:px-6 lg:px-8 pb-10 w-full box-border">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-full overflow-hidden border border-[#D9B08C] bg-gradient-to-tr from-[#116466] to-[#D9B08C] flex items-center justify-center shrink-0 text-[#FFCB9A] font-extrabold text-xs">
@@ -1474,13 +1526,28 @@ const handleDownloadCV = () => {
               </button>
             ))}
             <a
-              href={PORTFOLIO_DATA.whatsappUrl}
+              href={SOCIAL_LINKS.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#1A2321] border border-[#116466] text-[#FFCB9A] hover:bg-[#116466] hover:text-[#FFFFFF] transition-colors"
+              className="hover:text-[#FFCB9A] transition-colors"
             >
-              <MessageCircle className="w-3.5 h-3.5 shrink-0" />
-              <span>WhatsApp</span>
+              LinkedIn
+            </a>
+            <a
+              href={SOCIAL_LINKS.tiktok}
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-[#FFCB9A] transition-colors"
+            >
+              TikTok
+            </a>
+            <a
+              href={SOCIAL_LINKS.instagram}
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-[#FFCB9A] transition-colors"
+            >
+              Instagram
             </a>
           </div>
 
@@ -1489,20 +1556,6 @@ const handleDownloadCV = () => {
           </p>
         </div>
       </footer>
-
-      {/* FLOATING WHATSAPP QUICK-CHAT BUTTON */}
-      <a
-        href={PORTFOLIO_DATA.whatsappUrl}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Chat with Aisha Muhammad Waseem on WhatsApp"
-        className="fixed bottom-4 right-4 sm:bottom-5 sm:right-5 z-40 inline-flex items-center gap-2 px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-full bg-[#25D366] hover:bg-[#22bf5b] text-[#FFFFFF] border-2 border-[#116466] shadow-2xl hover:scale-105 transition-all"
-      >
-        <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#FFFFFF] text-[#25D366] flex items-center justify-center shrink-0">
-          <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current shrink-0" />
-        </span>
-        <span className="text-xs font-extrabold tracking-wide pr-1">Chat on WhatsApp</span>
-      </a>
 
       {/* PROJECT CASE STUDY MODAL */}
       {selectedProject && (
